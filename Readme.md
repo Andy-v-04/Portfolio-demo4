@@ -43,8 +43,9 @@ It showcases my profile, skills, projects, and contact information, using HTML a
 ---
 
 ## 🤖 AI Usage Log
-This project was partly supported by **ChatGPT (OpenAI, 2025)** for:
+This project was partly supported by **Gemini** for:
 - Code structure suggestions
 - Accessibility improvement review
 - README formatting and documentation assistance
 > All code and final edits were reviewed and verified by **Hoang Nam**.
+
