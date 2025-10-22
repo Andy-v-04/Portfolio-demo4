@@ -1,0 +1,453 @@
+/* Global Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+html {
+    scrollbar-width: smooth;
+}
+:root {
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-background: #f8f8f8;
+    --color-text: #333333;
+    --color-light-bg: #ffffff;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-size: 16px;
+}
+h1, h2, h3 {
+    color: #222;
+    margin-bottom: 0.5em;
+}
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+header {
+    background: #35424a;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    padding: 15px 5%;
+    z-index: 1000;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.logo {
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+}
+.nav-links a {
+    margin-left: 20px;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-links a:hover ,
+.nav-links a:focus {
+    color: var(--color-primary);
+    text-decoration: underline;
+    outline: 2px solid var(--color-primary);
+}
+
+/* Section Base Styles */
+section {
+    padding: 60px 5%;
+    min-height: 80vh;
+}
+section:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* CTA Button Styling */
+.cta-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px 5%;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* Responsive design (Start at 768px wide) */
+@media (max-width: 768px) {
+    /*  Adjust navigation for mobile devices */
+    .nav-links {
+        display: none;
+    }
+    nav {
+        flex-direction: column;
+    }
+
+    /* Make all sections stack nicely */
+    section {
+        padding: 40px 5%;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    /* Ensure CTA button uses full width for better tapping */
+    .cta-button {
+        width: 100%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        text-align: center;
+    }
+}
+
+/* Basic Form Styles */
+.contact-form {
+    background: var(--color-light-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+    grid-template-areas:
+        "info scope"
+        "advanced message"
+        "actions actions";
+}
+
+.user-info { grid-area: info; }
+.project-scope { grid-area: scope; }
+.advanced-inputs { grid-area: advanced; }
+.message-section { grid-area: message; }
+.form-actions { grid-area: actions; }
+
+/* Fieldset and Legend Styling */
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+}
+legend {
+    font-weight: bold;
+    padding: 0 10px;
+    color: var(--color-primary);
+}
+
+/* Common input/textarea styling */
+.contact-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="password"],
+.contact-form input[type="number"],
+.contact-form input[type="date"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.input-group label {
+    margin: 0;
+    font-weight: normal;
+}
+.input-group input[type="radio"],
+.input-group input[type="checkbox"] {
+    width: auto;
+}
+
+/* Range input styling */
+input[type="range"] {
+    padding: 0;
+}
+
+/* Button Group Styling */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 10px;
+}
+.secondary-button {
+    padding: 10px 25px;
+    background-color: var(--color-secondary);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.secondary-button:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 768px) {
+    /* Collapse the Grid into a single column for mobile */
+    .contact-form {
+        grid-template-areas:
+            "info"
+            "scope"
+            "advanced"
+            "message"
+            "actions";
+        grid-template-columns: 1fr;
+    }
+
+    /* Make buttons full width on small screens */
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .form-actions button {
+        width: 100%;
+    }
+
+    .profile-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .profile-details {
+        text-align: center; 
+    }
+
+    #resume-content {
+        margin: 30px auto;
+        padding: 20px;
+    }
+    #resume-content h1 {
+        font-size: 2em;
+    }
+    #resume-content .section-heading {
+        font-size: 1.5em;
+    }
+    #resume-content ul {
+        margin-left: 15px;
+    }
+    #resume-content .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Validation Feedback Styles */
+/* Style for inputs that fail validation */
+.contact-form input:invalid,
+.contact-form textarea:invalid {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Style for the error message text */
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 1.5em;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.input-group input[type="checkbox"] {
+    width: auto;
+}
+
+/* Home Section Profile Styling */
+.profile-intro {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 40px; 
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.circular-image {
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    box-shadow: 0 0 0 5px var(--color-light-bg), 0 0 0 7px var(--color-primary); 
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-details h1 {
+    margin-bottom: 5px;
+}
+
+.profile-details p {
+    font-size: 1.2em;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.project-header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    flex-grow: 1; 
+}
+
+.project-card a {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.project-header {
+    display: flex;
+    align-items: center; 
+    gap: 15px;          
+    margin-bottom: 10px; 
+}
+
+.project-logo {
+    width: 40px; 
+    height: 40px;
+    flex-shrink: 0; 
+}
+
+#resume-content {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: var(--color-light-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#resume-content h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#resume-content .subtitle {
+    font-size: 1.2em;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+#resume-content .contact-info {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#resume-content .section-heading {
+    font-size: 1.8em;
+    color: #333;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#resume-content ul {
+    list-style: disc; 
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+#resume-content ul ul { 
+    list-style: circle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#resume-content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+#resume-content .cta-button {
+    margin-top: 25px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
